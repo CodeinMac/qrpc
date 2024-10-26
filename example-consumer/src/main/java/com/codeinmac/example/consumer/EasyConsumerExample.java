@@ -5,7 +5,7 @@ import com.codeinmac.example.common.service.UserService;
 import com.codeinmac.qrpc.proxy.ServiceProxyFactory;
 
 /**
- * 简易服务消费者示例
+ * Example of a Minimal Service Consumer
  */
 public class EasyConsumerExample {
 

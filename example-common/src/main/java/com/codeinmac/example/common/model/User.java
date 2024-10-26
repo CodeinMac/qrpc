@@ -3,7 +3,7 @@ package com.codeinmac.example.common.model;
 import java.io.Serializable;
 
 /**
- * 用户
+ * User Info
  */
 public class User implements Serializable {
 

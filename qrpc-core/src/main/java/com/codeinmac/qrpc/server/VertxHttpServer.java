@@ -5,21 +5,21 @@ import io.vertx.core.Vertx;
 public class VertxHttpServer implements HttpServer {
 
     /**
-     * 启动服务器
+     * Start the Server
      *
      * @param port
      */
     public void doStart(int port) {
-        // 创建 Vert.x 实例
+        // Build Vert.x entry
         Vertx vertx = Vertx.vertx();
 
-        // 创建 HTTP 服务器
+        // Build HTTP Server
         io.vertx.core.http.HttpServer server = vertx.createHttpServer();
 
-        // 监听端口并处理请求
+        // Listening on ports and processing requests
         server.requestHandler(new HttpServerHandler());
 
-        // 启动 HTTP 服务器并监听指定端口
+        // Start the HTTP server and listen on the specified port.
         server.listen(port, result -> {
             if (result.succeeded()) {
                 System.out.println("Server is now listening on port " + port);

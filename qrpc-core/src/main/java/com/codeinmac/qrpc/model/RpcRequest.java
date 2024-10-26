@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * RPC 请求
+ * RPC Request class that represents
+ * a request for a remote procedure call.
  */
 @Data
 @Builder
@@ -17,22 +18,22 @@ import java.io.Serializable;
 public class RpcRequest implements Serializable {
 
     /**
-     * 服务名称
+     * The name of the service to be called.
      */
     private String serviceName;
 
     /**
-     * 方法名称
+     * The name of the method to be invoked on the service.
      */
     private String methodName;
 
     /**
-     * 参数类型列表
+     * An array of parameter types required by the method.
      */
     private Class<?>[] parameterTypes;
 
     /**
-     * 参数列表
+     * An array of arguments to be passed to the method.
      */
     private Object[] args;
 

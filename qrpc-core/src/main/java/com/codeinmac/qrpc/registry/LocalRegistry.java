@@ -4,17 +4,18 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 本地注册中心
+ * Local Registration Center that stores service registration information.
  */
 public class LocalRegistry {
 
     /**
-     * 注册信息存储
+     * Storage for registered services,
+     * mapping service names to their implementation classes
      */
     private static final Map<String, Class<?>> map = new ConcurrentHashMap<>();
 
     /**
-     * 注册服务
+     * Registers a service by storing its name and implementation class.
      *
      * @param serviceName
      * @param implClass
@@ -24,7 +25,7 @@ public class LocalRegistry {
     }
 
     /**
-     * 获取服务
+     * Retrieves the implementation class for a given service name.
      *
      * @param serviceName
      * @return
@@ -34,7 +35,7 @@ public class LocalRegistry {
     }
 
     /**
-     * 删除服务
+     * Removes the registration of a service by its name.
      *
      * @param serviceName
      */
