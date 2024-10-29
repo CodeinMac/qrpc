@@ -6,15 +6,15 @@ import com.codeinmac.qrpc.server.HttpServer;
 import com.codeinmac.qrpc.server.VertxHttpServer;
 
 /**
- * 简易服务提供者示例
+ * Example of a Minimal Service Provider
  */
 public class EasyProviderExample {
 
     public static void main(String[] args) {
-        // 注册服务
+        // Register the services
         LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
 
-        // 启动 web 服务
+        // Starting the web service
         HttpServer httpServer = new VertxHttpServer();
         httpServer.doStart(8080);
     }

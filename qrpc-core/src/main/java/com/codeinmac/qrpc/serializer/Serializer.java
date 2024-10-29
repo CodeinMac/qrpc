@@ -3,12 +3,12 @@ package com.codeinmac.qrpc.serializer;
 import java.io.IOException;
 
 /**
- * 序列化器接口
+ * serializer interface
  */
 public interface Serializer {
 
     /**
-     * 序列化
+     * serialize the object
      *
      * @param object
      * @param <T>
@@ -18,7 +18,7 @@ public interface Serializer {
     <T> byte[] serialize(T object) throws IOException;
 
     /**
-     * 反序列化
+     * deserialize the object
      *
      * @param bytes
      * @param type

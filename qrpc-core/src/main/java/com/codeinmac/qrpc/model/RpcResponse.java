@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * RPC 响应
+ * RPC Response class that represents
+ * a response from a remote procedure call.
  */
 @Data
 @Builder
@@ -17,22 +18,22 @@ import java.io.Serializable;
 public class RpcResponse implements Serializable {
 
     /**
-     * 响应数据
+     * The data returned from the remote procedure call.
      */
     private Object data;
 
     /**
-     * 响应数据类型（预留）
+     * The type of the response data (reserved for future use)
      */
     private Class<?> dataType;
 
     /**
-     * 响应信息
+     * A message providing additional information about the response
      */
     private String message;
 
     /**
-     * 异常信息
+     *  Any exception that occurred during the remote procedure call
      */
     private Exception exception;
 

@@ -4,7 +4,7 @@ import com.codeinmac.example.common.model.User;
 
 public interface UserService {
     /**
-     * 获取用户
+     * get User Info
      *
      * @param user
      * @return
