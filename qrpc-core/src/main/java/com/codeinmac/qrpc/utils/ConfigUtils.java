@@ -5,7 +5,7 @@ import cn.hutool.setting.dialect.Props;
 
 public class ConfigUtils {
     /**
-     * 加载配置对象
+     * Loading Configuration Objects
      *
      * @param tClass
      * @param prefix
@@ -17,7 +17,8 @@ public class ConfigUtils {
     }
 
     /**
-     * 加载配置对象，支持区分环境
+     * Load configuration objects
+     * to support differentiated environments
      *
      * @param tClass
      * @param prefix

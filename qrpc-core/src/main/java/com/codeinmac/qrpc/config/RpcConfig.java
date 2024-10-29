@@ -3,17 +3,20 @@ package com.codeinmac.qrpc.config;
 import lombok.Builder;
 import lombok.Data;
 
-
-@Builder
+/**
+ *  RPC framework configuration
+ */
 @Data
 public class RpcConfig {
-    //TODO: add comment,
-    //TODO: add initial value;
+    // Name
     private String name;
 
+    // Version number
     private String version;
 
+    //Server hostname
     private String serverHost;
 
-    private Integer serverPort;
+    // Server port number
+    private Integer serverPort= 8080;
 }
