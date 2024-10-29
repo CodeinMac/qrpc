@@ -3,12 +3,12 @@ package com.codeinmac.qrpc.proxy;
 import java.lang.reflect.Proxy;
 
 /**
- * 服务代理工厂（用于创建代理对象）
+ * Service Proxy Factory (for creating proxy objects)
  */
 public class ServiceProxyFactory {
 
     /**
-     * 根据服务类获取代理对象
+     * Getting a proxy object based on a service class
      *
      * @param serviceClass
      * @param <T>
