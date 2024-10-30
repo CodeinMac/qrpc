@@ -5,9 +5,13 @@ import com.codeinmac.example.common.model.User;
 public interface UserService {
     /**
      * get User Info
-     *
-     * @param user
-     * @return
      */
     User getUser(User user);
+
+    /**
+     * To test the return value of the mock interface
+     */
+    default short getNumber() {
+        return 1;
+    }
 }

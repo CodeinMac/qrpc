@@ -13,7 +13,7 @@ public class EasyConsumerExample {
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("Terminator-800");
-        //
+
         User newUser = userService.getUser(user);
         if (newUser != null) {
             System.out.println(newUser.getName());
