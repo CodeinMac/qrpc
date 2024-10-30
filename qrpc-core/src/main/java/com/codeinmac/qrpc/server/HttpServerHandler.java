@@ -1,14 +1,16 @@
 package com.codeinmac.qrpc.server;
 
+import com.codeinmac.qrpc.RpcApplication;
 import com.codeinmac.qrpc.model.RpcRequest;
 import com.codeinmac.qrpc.model.RpcResponse;
 import com.codeinmac.qrpc.registry.LocalRegistry;
-import com.codeinmac.qrpc.serializer.JdkSerializer;
 import com.codeinmac.qrpc.serializer.Serializer;
+import com.codeinmac.qrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -16,13 +18,13 @@ import java.lang.reflect.Method;
 /**
  * Handler for HTTP requests in the RPC server.
  */
+@Slf4j
 public class HttpServerHandler implements Handler<HttpServerRequest> {
 
     @Override
     public void handle(HttpServerRequest request) {
-        //  Create a serializer to handle serialization
-        //  and deserialization
-        final Serializer serializer = new JdkSerializer();
+        // Use a specific serializer
+        final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializer());
 
         // Log the received request
         System.out.println("Received request: " + request.method() + " " + request.uri());
@@ -75,8 +77,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
      * @param serializer  The serializer used to serialize the response.
      */
     void doResponse(HttpServerRequest request, RpcResponse rpcResponse, Serializer serializer) {
-        HttpServerResponse httpServerResponse = request.response()
-                .putHeader("content-type", "application/json");
+        HttpServerResponse httpServerResponse = request.response().putHeader("content-type", "application/json");
         try {
             // Serialize the response object to a byte array.
             byte[] serialized = serializer.serialize(rpcResponse);
@@ -84,7 +85,7 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
         } catch (IOException e) {
             e.printStackTrace();
             httpServerResponse.end(Buffer.buffer());
-            // TODO：add a log here :log.error()....
+            log.error("get response error:" + e);
         }
     }
 }
