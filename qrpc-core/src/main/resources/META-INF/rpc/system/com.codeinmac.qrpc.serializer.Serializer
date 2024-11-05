@@ -1,0 +1,4 @@
+jdk=com.codeinmac.qrpc.serializer.JdkSerializer
+hessian=com.codeinmac.qrpc.serializer.HessianSerializer
+json=com.codeinmac.qrpc.serializer.JsonSerializer
+kryo=com.codeinmac.qrpc.serializer.KryoSerializer

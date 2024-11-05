@@ -1,0 +1,48 @@
+#TODO: still have question on etcdkeeper, can not connect with etcd.
+
+#version: '1.0'
+#
+#networks:
+#  etcd_network:
+#    driver: bridge
+#
+#services:
+#  etcd:
+#    image: quay.io/coreos/etcd:v3.5.9  # Using the official etcd image, version 3.5.9
+#    container_name: etcd  # Container name is etcd
+#    ports:
+#      - "2379:2379"  # Client interface, mapped to port 2379 on the host
+#      - "2380:2380"  # Peer interface, mapped to port 2380 on the host
+#    environment:
+#      - ETCD_NAME=etcd-server  # etcd node name
+#      - ETCD_DATA_DIR=/etcd-data  # etcd data storage directory
+#      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379  # URLs to advertise to clients
+#      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379  # URLs to listen on for client requests
+#      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380  # URLs to listen on for peer traffic
+#    volumes:
+#      - etcd-data:/etcd-data  # Persist etcd data
+#    networks:
+#      - etcd_network
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://127.0.0.1:2379/health"]  # Check if etcd is healthy
+#      interval: 30s
+#      timeout: 15s
+#      retries: 5
+#      start_period: 60s
+#
+#  etcdkeeper:
+#    image: evildecay/etcdkeeper  # Using etcdkeeper image to provide a web UI for etcd
+#    container_name: etcdkeeper  # Container name is etcdkeeper
+#    ports:
+#      - "8080:8080"  # Web UI port, mapped to port 8080 on the host
+#    environment:
+#      - ETCD_HTTP_URL=http://etcd:2379  # URL for etcdkeeper to connect to etcd
+#    depends_on:
+#      etcd:
+#        condition: service_healthy  # Ensure etcdkeeper starts after etcd is healthy
+#    networks:
+#      - etcd_network
+#
+#volumes:
+#  etcd-data:
+#    driver: local  # Use local volume driver to persist data

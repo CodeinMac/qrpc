@@ -1,7 +1,10 @@
 package com.codeinmac.qrpc;
 
+import com.codeinmac.qrpc.config.RegistryConfig;
 import com.codeinmac.qrpc.config.RpcConfig;
 import com.codeinmac.qrpc.constant.RpcConstant;
+import com.codeinmac.qrpc.registry.Registry;
+import com.codeinmac.qrpc.registry.RegistryFactory;
 import com.codeinmac.qrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,14 +20,18 @@ public class RpcApplication {
     private static volatile RpcConfig rpcConfig;
 
     /**
-     * Framework initialization with support
-     * for passing in custom configurations
+     * Initializes the framework with the given configuration.
      *
-     * @param newRpcConfig
+     * @param newRpcConfig Custom configuration for initializing the RPC framework.
      */
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", newRpcConfig.toString());
+        // Initialize the registry
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
     }
 
     /**

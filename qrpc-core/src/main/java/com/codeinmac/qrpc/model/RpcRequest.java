@@ -36,5 +36,4 @@ public class RpcRequest implements Serializable {
      * An array of arguments to be passed to the method.
      */
     private Object[] args;
-
 }

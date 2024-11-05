@@ -5,24 +5,58 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * RPC framework configuration
+ * Global configuration for the RPC framework.
  */
 @Data
 public class RpcConfig {
-    // Name
-    private String name;
 
-    // Version number
-    private String version;
+    /**
+     * Name of the RPC framework.
+     */
+    private String name = "qrpc";
 
-    //Server hostname
-    private String serverHost;
+    /**
+     * Version of the RPC framework.
+     */
+    private String version = "1.0";
 
-    // Server port number
+    /**
+     * Server hostname.
+     */
+    private String serverHost = "localhost";
+
+    /**
+     * Server port number.
+     */
     private Integer serverPort = 8080;
 
-    // mock test mode
+    /**
+     * Serializer to use.
+     */
+    private String serializer = SerializerKeys.JDK;
+
+    /**
+     * Load balancer to use.
+     */
+//    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * Retry strategy to use.
+     */
+//    private String retryStrategy = RetryStrategyKeys.NO;
+
+    /**
+     * Fault-tolerance strategy to use.
+     */
+//    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
+
+    /**
+     * Enable mock calls.
+     */
     private boolean mock = false;
 
-    private String serializer = SerializerKeys.JDK;
+    /**
+     * Registry configuration.
+     */
+    private RegistryConfig registryConfig = new RegistryConfig();
 }

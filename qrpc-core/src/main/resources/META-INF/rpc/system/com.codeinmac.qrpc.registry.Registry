@@ -1,0 +1,2 @@
+etcd=com.codeinmac.qrpc.registry.EtcdRegistry
+zookeeper=com.codeinmac.qrpc.registry.ZooKeeperRegistry
