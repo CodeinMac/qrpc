@@ -40,6 +40,19 @@ public interface Registry {
     List<ServiceMetaInfo> serviceDiscovery(String serviceKey);
 
     /**
+     * Heartbeat detection (server-side)
+     */
+    void heartBeat();
+
+    /**
+     * Listening (consumer side)
+     *
+     * @param serviceNodeKey
+     */
+    void watch(String serviceNodeKey);
+
+
+    /**
      * Destroy the registry and release resources.
      */
     void destroy();

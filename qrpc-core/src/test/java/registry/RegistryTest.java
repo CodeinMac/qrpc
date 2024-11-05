@@ -70,4 +70,12 @@ public class RegistryTest {
         List<ServiceMetaInfo> serviceMetaInfoList = registry.serviceDiscovery(serviceKey);
         Assert.assertNotNull(serviceMetaInfoList);
     }
+
+    @Test
+    public void heartBeat() throws Exception {
+        // The heartbeat detection is already performed in the init method
+        register();
+        // Blocking 1 minute
+        Thread.sleep(60 * 1000L);
+    }
 }
