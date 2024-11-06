@@ -1,0 +1,4 @@
+failBack=com.codeinmac.qrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.codeinmac.qrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.codeinmac.qrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.codeinmac.qrpc.fault.tolerant.FailSafeTolerantStrategy

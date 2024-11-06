@@ -1,0 +1,2 @@
+no=com.codeinmac.qrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.codeinmac.qrpc.fault.retry.FixedIntervalRetryStrategy
