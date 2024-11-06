@@ -1,5 +1,6 @@
 package com.codeinmac.qrpc.model;
 
+import com.codeinmac.qrpc.constant.RpcConstant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,4 +37,9 @@ public class RpcRequest implements Serializable {
      * An array of arguments to be passed to the method.
      */
     private Object[] args;
+
+    /**
+     * Version
+     */
+    private String serviceVersion = RpcConstant.DEFAULT_SERVICE_VERSION;
 }

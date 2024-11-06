@@ -1,5 +1,8 @@
 package com.codeinmac.qrpc.config;
 
+import com.codeinmac.qrpc.fault.retry.RetryStrategyKeys;
+import com.codeinmac.qrpc.fault.tolerant.TolerantStrategyKeys;
+import com.codeinmac.qrpc.loadbalancer.LoadBalancerKeys;
 import com.codeinmac.qrpc.serializer.SerializerKeys;
 import lombok.Builder;
 import lombok.Data;
@@ -38,17 +41,17 @@ public class RpcConfig {
     /**
      * Load balancer to use.
      */
-//    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 
     /**
      * Retry strategy to use.
      */
-//    private String retryStrategy = RetryStrategyKeys.NO;
+    private String retryStrategy = RetryStrategyKeys.NO;
 
     /**
      * Fault-tolerance strategy to use.
      */
-//    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 
     /**
      * Enable mock calls.
